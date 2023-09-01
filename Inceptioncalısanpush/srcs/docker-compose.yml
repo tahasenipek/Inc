@@ -2,31 +2,28 @@ version: '3'
 
 
 services:
-
   nginx:
-    
-    container_name: nginx
+      
+      container_name: nginx
 
-    
-    build: ./requirements/nginx
+      
+      build: ./requirements/nginx
 
-    
+      
+  
+      ports:
+        - 443:443
 
-    
-    
-    ports:
-      - 443:443
-    
-    
-    volumes:
-      - wordpress_data:/var/www/html
+  
+      volumes:
+        - wordpress_data:/var/www/html
 
-    
-    restart: always
+  
+      restart: always
 
-    
-    networks:
-      - network
+  
+      networks:
+        - network
 
   mariadb:
     container_name: mariadb
@@ -70,7 +67,7 @@ volumes:
       type: none
       device: /home/msenipek/data/wordpress
       o: bind
-
+      
 
 networks:
   network:
